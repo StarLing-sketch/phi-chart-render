@@ -11,6 +11,7 @@ export default function OfficialChartConverter(_chart)
     let notes = [];
     let sameTimeNoteCount = {};
 
+    chart.Charttype = "off";
     chart.offset = rawChart.offset;
 
     rawChart.judgeLineList.forEach((_judgeline, index) =>
