@@ -40,6 +40,7 @@ export default function PhiEditChartConverter(_chart)
 {
     let rawChart = _chart.split(/\r\n|\n\r/);
     let chart = new Chart();
+    chart.Charttype = "pec";
     let chartSimple = {
         bpm: [],
         judgelines: [],
