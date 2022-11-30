@@ -8,6 +8,7 @@ export default class Chart
     {
         this.judgelines = [];
         this.notes      = [];
+        this.Charttype  = params.Charttype,
         this.offset     = !isNaN(parseFloat(params.offset)) ? parseFloat(params.offset) : 0;
 
         this.music      = params.music ? params.music : null;
@@ -223,7 +224,14 @@ export default class Chart
                 }
                 else if (judgeline.texture)
                 {
-                    judgeline.baseScaleX = judgeline.baseScaleY = this.renderSize.LineSizePercent;
+                    if(this.Charttype == "pez")
+                    {
+                        judgeline.baseScaleX = judgeline.baseScaleY = this.renderSize.LineheightPercent;
+                    }
+                    else if(this.Charttype == "pec" || this.Charttype == "off")
+                    {
+                        judgeline.baseScaleX = judgeline.baseScaleY = this.renderSize.lineScale / 60;
+                    }
                 }
                 else
                 {
