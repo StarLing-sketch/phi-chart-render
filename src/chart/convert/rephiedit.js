@@ -73,6 +73,7 @@ export default function RePhiEditChartConverter(_chart)
     let sameTimeNoteCount = {};
     let rawChart = convertChartFormat(_chart);
     let chart = new Chart({
+        Charttype : "pez",
         name      : rawChart.META.name,
         artist    : rawChart.META.composer,
         author    : rawChart.META.charter,
