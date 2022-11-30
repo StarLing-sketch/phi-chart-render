@@ -716,8 +716,23 @@ function calcResizer(width, height, noteScale = 8000)
     result.noteScale     = result.width / noteScale;
     result.noteWidth     = result.width * 0.117775;
     result.lineScale     = result.width > result.height * 0.75 ? result.height / 18.75 : result.width / 14.0625;
-    result.heightPercent = result.height / 1080;
-    result.LineSizePercent = result.height / 750;
-
+    result.heightPercent = result.height / 1080; 
+    /*var divisor = aliquot(width, height); //获整除数
+    var i = (width / divisor) * (height / divisor);
+    switch(i)
+    {
+        case 144:
+            i *= 0.01; break;
+        case 12:
+            i *= 0.105; break;//0.106f
+        default:
+            i *= 0.01;
+    }*/
+    result.LineheightPercent = result.height / 750;//i;
     return result;
+}
+function aliquot(width, height)
+{
+    if (width % height == 0) return height;
+    return aliquot(height, width % height);
 }
